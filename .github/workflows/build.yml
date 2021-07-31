@@ -1,0 +1,38 @@
+name: build
+
+on:
+  push:
+    tags:
+      - release-**
+  pull_request:
+    tags:
+      - release-**
+
+jobs:
+  build:
+    name: Build and Publish Package
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        with:
+          submodules: 'recursive'
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+          bundler-cache: true
+      - name: Install Dependencies
+        run: bundle install
+      - name: Build Package
+        run: gem build kagami.gemspec
+      - name: Publish Package
+        run: |
+          mkdir -p $HOME/.gem
+          touch $HOME/.gem/credentials
+          chmod 0600 $HOME/.gem/credentials
+          printf -- "---\n:github: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
+          gem push --KEY github --host https://rubygems.pkg.github.com/${OWNER} *.gem
+        env:
+          GEM_HOST_API_KEY: "Bearer ${{ secrets.GITHUB_TOKEN }}"
+          OWNER: ${{ github.repository_owner }}
