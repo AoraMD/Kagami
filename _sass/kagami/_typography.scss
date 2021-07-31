@@ -1,4 +1,8 @@
 [lang^="en"]      { line-height: 1.6; @include font-serif; }
+[lang^="zh-CN"] { line-height: 1.8; @include font-serif-zh-Hans; }
+[lang^="zh-SG"] { line-height: 1.8; @include font-serif-zh-Hans; }
+[lang^="zh-HK"] { line-height: 1.8; @include font-serif-zh-Hant; }
+[lang^="zh-TW"] { line-height: 1.8; @include font-serif-zh-Hant; }
 [lang^="zh-Hans"] { line-height: 1.8; @include font-serif-zh-Hans; }
 [lang^="zh-Hant"] { line-height: 1.8; @include font-serif-zh-Hant; }
 [lang^="ja"]      { line-height: 1.8; @include font-serif-ja; }
