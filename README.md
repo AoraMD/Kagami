@@ -1,11 +1,10 @@
 # Kagami
 
-[![Build Status](https://travis-ci.org/kamikat/jekyll-theme-kagami.svg?branch=master)](https://travis-ci.org/kamikat/jekyll-theme-kagami)
-[![Gem Version](https://badge.fury.io/rb/jekyll-theme-kagami.svg)](https://badge.fury.io/rb/jekyll-theme-kagami)
+> The repository is forked from Kamikat's Kagami Jekyll theme.
 
 A peaceful theme for Jekyll and GitHub Pages.
 
-![Screenshot](https://s2.banana.moe/docs/kagami-preview@2x.png)
+![Screenshot](http://jekyllthemes.org/thumbnails/kagami.png)
 
 ## Installation
 
