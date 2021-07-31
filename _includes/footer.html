@@ -33,8 +33,11 @@
       {% endif %}
 
     </div>
-    <div class="credits">
-      KAGAMI, made with <i class="fa fa-heart"></i> by Kamikat
+    <div class="footer-info">
+      <p>KAGAMI, made with <i class="fa fa-heart"></i> by Kamikat</p>
+      {% for info in site.footer_info %}
+      <p>{{ info }}</p>
+      {% endfor %}
     </div>
   </div>
 
