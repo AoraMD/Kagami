@@ -3,7 +3,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>{% if page.title %}{{ page.title | append: " - " | append: site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+  
+  <title>
+    {% if page.title %}
+    {% if site.title_with_description == true %}
+    {{ page.title | append: " - " | append: page.description | append: " - " | append: site.title | escape }}
+    {% else %}
+    {{ page.title | append: " - " | append: site.title | escape }}
+    {% endif %}
+    {% else %}
+    {{ site.title | escape }}
+    {% endif %}
+  </title>
+    
   <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
 
   {% assign v = site.time | date: "%Y%m%d%H%M%S" %}
