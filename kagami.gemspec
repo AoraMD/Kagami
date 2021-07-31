@@ -2,12 +2,12 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "kagami"
-  spec.version       = "0.1.12"
-  spec.authors       = ["kamikat"]
-  spec.email         = ["kamikat@banana.moe"]
+  spec.version       = "0.2.0"
+  spec.authors       = ["AoraMD"]
+  spec.email         = ["contact@aoramd.moe"]
 
   spec.summary       = %q{A peaceful theme for Jekyll and GitHub Pages.}
-  spec.homepage      = "https://github.com/kamikat/jekyll-theme-kagami"
+  spec.homepage      = "https://github.com/AoraMD/Kagami"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files --recurse-submodules -z`.split("\x0").select { |f| f.match(%r{^(assets|_layouts|_includes|_sass/kagami|_sass/scut/dist|LICENSE|README)}i) }
