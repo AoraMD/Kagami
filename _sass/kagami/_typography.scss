@@ -78,6 +78,7 @@ article {
   ol { list-style-type: decimal; }
 
   blockquote {
+    font-size: 0.85em;
     font-style: italic;
   }
 
@@ -85,7 +86,7 @@ article {
     display: inline-block;
     padding: 0 0.3em;
     margin: 0 -0.05em;
-    font-size: 0.875em;
+    font-size: 0.8em;
     @include font-monospace;
     color: $inline-code-color;
     background: $inline-code-background;
