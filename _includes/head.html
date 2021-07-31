@@ -6,7 +6,7 @@
   
   <title>
     {% if page.title %}
-    {% if site.title_with_description == true %}
+    {% if site.title_with_description == true and page.description %}
     {{ page.title | append: " - " | append: page.description | append: " - " | append: site.title | escape }}
     {% else %}
     {{ page.title | append: " - " | append: site.title | escape }}
