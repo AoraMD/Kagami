@@ -2,7 +2,7 @@
 
 > The repository is forked from Kamikat's Kagami Jekyll theme.
 
-A peaceful theme for Jekyll and GitHub Pages.
+Simple and clean theme for Jekyll and GitHub Pages.
 
 ![Screenshot](http://jekyllthemes.org/thumbnails/kagami.png)
 
@@ -65,11 +65,9 @@ Add the following lines to choose a color scheme:
 color_scheme: github
 ```
 
-### Enabling comments (via Disqus)
+### Comment service (Disqus or Gitalk)
 
-Optionally, if you have a Disqus account, you can tell Jekyll to use it to show a comments section below each post.
-
-To enable it, add the following lines to your Jekyll site:
+Add the following lines to your Jekyll site to enable Disqus comment service:
 
 ```yaml
 disqus_shortname: my_disqus_shortname
@@ -77,11 +75,23 @@ disqus_shortname: my_disqus_shortname
 
 You can find out more about Disqus' shortnames [here](https://help.disqus.com/customer/portal/articles/466208).
 
-Comments are enabled by default and will only appear in production, i.e., `JEKYLL_ENV=production`
+For [Gitalk](https://github.com/gitalk/gitalk#options):
 
-If you don't want to display comments for a particular post you can disable them by adding `comments: false` to that post's YAML Front Matter.
+```yaml
+gitalk:
+  id: <clientID>
+  secret: <clientSecret>
+  repo: <repo>
+  owner: <owner> # (optional) if not set, value of `github_username` will be used
+  admin: <admin> # (optional) if not set, value of `github_username` will be used
+  proxy: ...     # (optional)
+```
 
-### Enabling Google Analytics
+By default, comment service will only be enabled in production mode, set an environment `JEKYLL_ENV=production` for local test.
+
+If you don't want to comments for particular posts you can disable that by adding `comments: false` to the post's YAML Front Matter.
+
+### Google Analytics
 
 To enable Google Anaytics, add the following lines to your Jekyll site:
 
@@ -91,16 +101,15 @@ google_analytics: UA-NNNNNNNN-N
 
 Google Analytics will only appear in production, i.e., `JEKYLL_ENV=production`
 
-### Navigation
+### Navigation Bar
 
-Pages and posts can be listed as navigation item in header of pages. Add following frontmatter will make it
+Pages and posts can be registered as navigation item with following frontmatter:
 
 ```yaml
-navlevel: header
-navtitle: Awesome Title # optional, specifies the text to display on navigation item
+navbar_title: Awesome Title # specifies the text to display as navigation item
 ```
 
-Navigation items are ordered in alphabetical order by default in Jekyll. While you can adjust the order manually using
+Navigation items are ordered in alphabetical order by default in Jekyll. Adjust the order manually with a `position` value:
 
 ```yaml
 position: 999
@@ -108,7 +117,7 @@ position: 999
 
 ### Tags and category
 
-Layout file `post-list` supports filters by tag or category. Create pages with following frontmatter will generate a filtered post list.
+Layout file `post-list` supports filtering by tag or category. Create pages with following frontmatter will generate a filtered post list.
 
 ```yaml
 title: Title of Tag Page
@@ -129,7 +138,7 @@ Results from multiple filters are combined (logical 'or') into the result.
 
 A more flexible filter strategy is supported by supplying liquid expression to `by_expression` parameter in which post object can be referenced by the name `post`.
 
-### Enabling MathJax
+### MathJax
 
 You can use MathJax with Kramdown's [built-in support](https://kramdown.gettalong.org/syntax.html#math-blocks).
 
@@ -139,6 +148,17 @@ or post's front matter stuff:
 ```yaml
 mathjax: true
 ```
+
+### Mermaid
+
+To enable [mermaid](https://mermaid-js.github.io/mermaid/), add following line to
+the site configuration or post's front matter stuff:
+
+```yaml
+mermaid: true
+```
+
+Code blocks with `mermaid` language tag should be transformed into diagrams.
 
 ### Use `.side-note` and `.retina2x`
 
@@ -165,7 +185,7 @@ Bug reports and pull requests are welcome on GitHub at <https://github.com/kamik
 
 To set up your environment to develop this theme, run `bundle install`.
 
-Your theme is setup just like a normal Jekyll site! To test your theme, run `bundle exec jekyll serve` and open your browser at `http://localhost:4000`. This starts a Jekyll server using your theme. Add pages, documents, data, etc. like normal to test your theme's contents. As you make modifications to your theme and to your content, your site will regenerate and you should see the changes in the browser after a refresh, just like normal.
+Your theme is setup just like a normal Jekyll site! To test your theme, run `bundle exec jekyll serve -s example` and open your browser at `http://localhost:4000`. This starts a Jekyll server using your theme. Add pages, documents, data, etc. like normal to test your theme's contents. As you make modifications to your theme and to your content, your site will regenerate and you should see the changes in the browser after a refresh, just like normal.
 
 When your theme is released, only the files in `_layouts`, `_includes`, and `_sass` tracked with Git will be released.
 
