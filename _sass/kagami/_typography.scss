@@ -222,11 +222,36 @@ article {
 
 .social-link:hover {
   transform: translateY(-0.25em);
-  &.social-github { color: #333; }
-  &.social-email { color: #b2dfdb; }
-  &.social-twitter { color: #1da1f2; }
-  &.social-instagram { color: #e1306c; }
-  &.social-rss { color: #f26522; }
+  &.social-github {
+    color: #9fa8da;
+    @media (prefers-color-scheme: dark) {
+      color: #c5cae9;
+    }
+  }
+  &.social-email {
+    color: #a5d6a7;
+    @media (prefers-color-scheme: dark) {
+      color: #c8e6c9;
+    }
+  }
+  &.social-twitter {
+    color: #90caf9;
+    @media (prefers-color-scheme: dark) {
+      color: #bbdefb;
+    }
+  }
+  &.social-instagram {
+    color: #ce93d8;
+    @media (prefers-color-scheme: dark) {
+      color: #e1bee7;
+    }
+  }
+  &.social-rss {
+    color: #ffab91;
+    @media (prefers-color-scheme: dark) {
+      color: #ffccbc;
+    }
+  }
 }
 
 .footer-info {
