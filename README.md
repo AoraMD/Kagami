@@ -1,193 +1,67 @@
 # Kagami
 
 > The repository is forked from Kamikat's Kagami Jekyll theme.
+>
+> This readme document will only contain descriptions of new features compared to the origin. Please see [the origin repository](https://github.com/kamikat/jekyll-theme-kagami) for more details about Kagami.
+>
+> The original repository was low maintenance that it is difficult to quickly merge new features into it, so I forked this repository.
 
 Simple and clean theme for Jekyll and GitHub Pages.
 
 ![Screenshot](http://jekyllthemes.org/thumbnails/kagami.png)
 
-## Installation
+## About installation
 
-Add this line to your Jekyll site's Gemfile:
+> To avoid confusing developers searching for Kagami from official package manager, this fork would not upload package to [RubyGems](https://rubygems.org/). All packages of this fork will be uploaded to GitHub Packages.
 
-```ruby
-gem "jekyll-theme-kagami"
-```
+## Features
 
-And add this line to your Jekyll site's `_config.yml`:
+### Page template: recent
 
-```yaml
-theme: jekyll-theme-kagami
-```
+The new page template `recent` divides posts by category and only displays only a set number of posts per category. It is more concise that using it as website homepage than template `home`.
 
-And then execute:
+### Dark mode
 
-    $ bundle
+Kagami now supports dark mode.
 
-Or install it yourself as:
+### Social account: email
 
-    $ gem install jekyll-theme-kagami
-
-### GitHub Pages
-
-Jekyll build is integrated with GitHub Pages with limited function. This section is intended for those who
-want to use the theme with GitHub Pages hosted sites.
-
-1. Download latest gem file from https://rubygems.org/gems/jekyll-theme-kagami
-2. Run `gem unpack [path-to-downloaded-gem-file] --target=.` on jekyll site project folder
-3. Delete the line `theme: ...` in `_config.yml`
-
-Zip archive downloaded from release page may not work because GitHub does not pack necessary files from submodules.
-
-Instruction 1 and 2 can also work when you decide to upgrade your installation.
-
-## Usage
-
-### Social account links
-
-You can customize social account links by adding following lines to `_config.yml`
+New social account link `email` can be set. Just add following line in `_config.yml`
 
 ```yaml
-github_username: my_github_username
-twitter_username: my_twitter_username
-instagram_username: my_instagram_username
+email: <my_email_address>
 ```
 
-You can customize footer by overriding `_includes/footer.html`.
+### Custom CSS
 
-### Syntax highlighting
+You can load your CSS file in page if need. Add paths of custom CSS files in `_config.yml` like the following template.
 
-Kagami support color schemes from [jekyll-pygments-themes](https://github.com/jwarby/jekyll-pygments-themes).
-
-Add the following lines to choose a color scheme:
-
-```yaml
-color_scheme: github
+``` yaml
+custom_css:
+  - assets/styles/custom_css_first.css
+  - assets/styles/custom_css_second.css
 ```
 
-### Comment service (Disqus or Gitalk)
+### Custom footer
 
-Add the following lines to your Jekyll site to enable Disqus comment service:
+You can append multiple lines in the page footers.
 
-```yaml
-disqus_shortname: my_disqus_shortname
+``` yaml
+footer_info:
+  - Licensed under CC XXXX 4.0
 ```
 
-You can find out more about Disqus' shortnames [here](https://help.disqus.com/customer/portal/articles/466208).
+### Font Awesome
 
-For [Gitalk](https://github.com/gitalk/gitalk#options):
+[Font Awesome](https://fontawesome.com) is used instead of [Fontello](https://fontello.com). More icons!
 
-```yaml
-gitalk:
-  id: <clientID>
-  secret: <clientSecret>
-  repo: <repo>
-  owner: <owner> # (optional) if not set, value of `github_username` will be used
-  admin: <admin> # (optional) if not set, value of `github_username` will be used
-  proxy: ...     # (optional)
+### Description in title
+
+There is a switch that you can append post description in HTML tag `<title>` that the description content can be searched by search engine.
+
+``` yaml
+title_with_description: true
 ```
-
-By default, comment service will only be enabled in production mode, set an environment `JEKYLL_ENV=production` for local test.
-
-If you don't want to comments for particular posts you can disable that by adding `comments: false` to the post's YAML Front Matter.
-
-### Google Analytics
-
-To enable Google Anaytics, add the following lines to your Jekyll site:
-
-```yaml
-google_analytics: UA-NNNNNNNN-N
-```
-
-Google Analytics will only appear in production, i.e., `JEKYLL_ENV=production`
-
-### Navigation Bar
-
-Pages and posts can be registered as navigation item with following frontmatter:
-
-```yaml
-navbar_title: Awesome Title # specifies the text to display as navigation item
-```
-
-Navigation items are ordered in alphabetical order by default in Jekyll. Adjust the order manually with a `position` value:
-
-```yaml
-position: 999
-```
-
-### Tags and category
-
-Layout file `post-list` supports filtering by tag or category. Create pages with following frontmatter will generate a filtered post list.
-
-```yaml
-title: Title of Tag Page
-layout: post-list
-filter:
-  - by_tag: tagname
-```
-
-To filter by both category and tags:
-
-```yaml
-filter:
-  - by_tag: tagname
-    by_category: category
-```
-
-Results from multiple filters are combined (logical 'or') into the result.
-
-A more flexible filter strategy is supported by supplying liquid expression to `by_expression` parameter in which post object can be referenced by the name `post`.
-
-### MathJax
-
-You can use MathJax with Kramdown's [built-in support](https://kramdown.gettalong.org/syntax.html#math-blocks).
-
-To enable [MathJax](https://www.mathjax.org/), add following lines to your site
-or post's front matter stuff:
-
-```yaml
-mathjax: true
-```
-
-### Mermaid
-
-To enable [mermaid](https://mermaid-js.github.io/mermaid/), add following line to
-the site configuration or post's front matter stuff:
-
-```yaml
-mermaid: true
-```
-
-Code blocks with `mermaid` language tag should be transformed into diagrams.
-
-### Use `.side-note` and `.retina2x`
-
-Taking advantages of [Block/span IAL](https://kramdown.gettalong.org/syntax.html#block-ials),
-Kagami supports extra elements in writing.
-
-Add `{:.side-note}` notation after a paragraph (in a new line just after paragraph WITHOUT extra line breaks)
-will style the paragraph as a sidenote. Sidenote will be pull to the left of
-the page and only be visible in desktop mode.
-
-Kagami is also optimized for high-res image display:
-
-```markdown
-![image@2x](path-to-image@2x.png){:.retina2x}
-```
-
-And the retina image will be scaled to half of it's original size in pixels.
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at <https://github.com/kamikat/jekyll-theme-kagami>. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-
-## Development
-
-To set up your environment to develop this theme, run `bundle install`.
-
-Your theme is setup just like a normal Jekyll site! To test your theme, run `bundle exec jekyll serve -s example` and open your browser at `http://localhost:4000`. This starts a Jekyll server using your theme. Add pages, documents, data, etc. like normal to test your theme's contents. As you make modifications to your theme and to your content, your site will regenerate and you should see the changes in the browser after a refresh, just like normal.
-
-When your theme is released, only the files in `_layouts`, `_includes`, and `_sass` tracked with Git will be released.
 
 ## License
 
