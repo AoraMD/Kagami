@@ -5,22 +5,45 @@ layout: default
 {% include header.html %}
 
 <ul class="post-list">
-  {% for recent_item in site.data.recent %}
+  {% if site.recent_force_order %}
+    {% capture recent_item_list %}
+      {% for category in site.data.recent %}
+        | _#{{ category.id }}#{{ category.name }}#{{ category.size }}
+      {% endfor %}
+    {% endcapture %}
+    {% assign sorted_recent_items = recent_item_list | split: '|' %}
+  {% else %}
+    {% capture recent_item_list %}
+      {% for category in site.data.recent %}
+        {% assign posts = site.posts %}
+        {% assign posts = posts | where_exp: "post", "post.categories contains category.id" %}
+        {% if posts %}
+          | {{ posts[0].date }}#{{ category.id }}#{{ category.name }}#{{ category.size }}
+        {% endif %}
+      {% endfor %}
+    {% endcapture %}
+    {% assign sorted_recent_items = recent_item_list | split: '|' | sort | reverse %}
+  {% endif %}
 
+  {% for recent_item in sorted_recent_items %}
+    {% assign recent_item_data = recent_item | split: '#' %}
+    {% assign recent_item_id = recent_item_data[1] %}
+    {% assign recent_item_name = recent_item_data[2] %}
+    {% assign recent_item_size = recent_item_data[3] | times: 1 %}
     {% assign posts = site.posts %}
-    {% assign posts = posts | where_exp: "post", "post.categories contains recent_item.id "%}
+    {% assign posts = posts | where_exp: "post", "post.categories contains recent_item_id" %}
     {% if posts %}
-      {% if posts.size > recent_item.size %}
-        {% assign posts = posts | slice: 0, recent_item.size %}
+      {% if posts.size > recent_item_size %}
+        {% assign posts = posts | slice: 0, recent_item_size %}
       {% endif %}
     {% endif %}
 
     {% if posts and posts.size > 0 %}
-      {% if recent_item != site.data.recent[0] %}
+      {% if recent_item != sorted_recent_items[0] %}
       <div class="post-list-delimiter"></div>
       {% endif %}
-      <li class="post-list-group-header" data-tags="{{ recent_item.name }}">
-        <a href="{{ recent_item.id | url_encode | prepend: "/category/" | relative_url }}">—— {{ recent_item.name }} ——</a>
+      <li class="post-list-group-header" data-tags="{{ recent_item_name }}">
+        <a href="{{ recent_item_id | url_encode | prepend: "/category/" | relative_url }}">—— {{ recent_item_name }} ——</a>
       </li>
       {% for post in posts %}
       {% include post-list-item.html %}
