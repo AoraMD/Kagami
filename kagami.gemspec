@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "kagami"
-  spec.version       = "0.2.6"
+  spec.version       = "0.2.7"
   spec.authors       = ["AoraMD"]
   spec.email         = ["contact@aoramd.moe"]
 
