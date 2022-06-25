@@ -63,6 +63,14 @@ There is a switch that you can append post description in HTML tag `<title>` tha
 title_with_description: true
 ```
 
+### ISSO
+
+Add service URL to enable ISSO comments.
+
+``` yaml
+isso: https://isso.example.com
+```
+
 ## License
 
 The theme is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
