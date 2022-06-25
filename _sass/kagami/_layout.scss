@@ -207,3 +207,34 @@ article {
   margin: 4px 8px;
   p { margin: 0; padding: 0; }
 }
+
+#isso-thread {
+  font-size: 90%;
+  a {
+    border-bottom: none;
+  }
+  .isso-input-wrapper {
+    margin-right: 8px;
+    label {
+      font-size: 80%;
+    }
+  }
+  .isso-post-action {
+    input {
+      background-color: transparent;
+      border-style: none;
+      box-shadow: none;
+    }
+    input:hover {
+      transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+  }
+  .isso-notification-section {
+    input {
+      margin-right: 8px;
+    }
+    label {
+      font-size: 80%;
+    }
+  }
+}

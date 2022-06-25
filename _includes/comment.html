@@ -1,0 +1,51 @@
+{% if jekyll.environment == 'production' and page.comments != false %}
+
+{% if site.disqus_shortname %}
+
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function () {
+    this.page.url = '{{ page.url | absolute_url }}';
+    this.page.identifier = '{{ page.url | absolute_url }}';
+  };
+
+  (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = 'https://{{ site.disqus_shortname }}.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+{% elsif site.isso %}
+
+<script data-isso="{{ site.isso }}" src="{{ site.isso }}/js/embed.min.js"></script>
+<section id="isso-thread" data-title="{{ page.title }}" data-isso-id="{{ page.id }}"></section>
+
+{% elsif site.gitalk %}
+
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        id: '{{ page.title }}',
+        clientID: '{{ site.gitalk.id }}',
+        clientSecret: '{{ site.gitalk.secret }}',
+        repo: '{{ site.gitalk.repo | default: site.gitalk.repository }}',
+        owner: '{{ site.gitalk.owner | default: site.github_username }}',
+        admin: ['{{ site.gitalk.admin | default: site.github_username }}'],
+        body: location.href,
+        proxy: '{{ site.gitalk.proxy | default: "https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token" }}',
+        language: '{{ site.lang | default: "en" }}',
+        distractionFreeMode: false
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+{% endif %}
+
+{% endif %}
