@@ -2,14 +2,14 @@
 
 @font-face {
   font-family: "Kagami SC";
-  src: local("Songti SC Regular"), local(STSongti-SC-Regular);
+  src: local("Songti SC Regular"), local(STSongti-SC-Regular), url("/assets/fonts/source-hans-serif-cn-sc.woff2");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Kagami SC";
-  src: local("Songti SC Bold"), local(STSongti-SC-Bold);
+  src: local("Songti SC Bold"), local(STSongti-SC-Bold), url("/assets/fonts/source-hans-serif-cn-sc.woff2");
   font-weight: bold;
   font-style: normal;
 }
@@ -30,14 +30,14 @@
 
 @font-face {
   font-family: "Kagami TC";
-  src: local("Songti TC Regular"), local(STSongti-TC-Regular);
+  src: local("Songti TC Regular"), local(STSongti-TC-Regular), url("/assets/fonts/source-hans-serif-cn-tc.woff2");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Kagami TC";
-  src: local("Songti TC Bold"), local(STSongti-TC-Bold);
+  src: local("Songti TC Bold"), local(STSongti-TC-Bold), url("/assets/fonts/source-hans-serif-cn-tc.woff2");
   font-weight: bold;
   font-style: normal;
 }
