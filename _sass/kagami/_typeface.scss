@@ -5,6 +5,7 @@
   src: local("Songti SC Regular"), local(STSongti-SC-Regular), url("/assets/fonts/source-hans-serif-cn-sc.woff2");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -12,27 +13,15 @@
   src: local("Songti SC Bold"), local(STSongti-SC-Bold), url("/assets/fonts/source-hans-serif-cn-sc.woff2");
   font-weight: bold;
   font-style: normal;
+  font-display: swap;
 }
-
-// @font-face {
-//   font-family: "Kagami SC";
-//   src: local("Kaiti SC Regular"), local(STKaiti-SC-Regular);
-//   font-weight: normal;
-//   font-style: italic;
-// }
-
-// @font-face {
-//   font-family: "Kagami SC";
-//   src: local("Kaiti SC Bold"), local(STKaiti-SC-Bold);
-//   font-weight: bold;
-//   font-style: italic;
-// }
 
 @font-face {
   font-family: "Kagami TC";
   src: local("Songti TC Regular"), local(STSongti-TC-Regular), url("/assets/fonts/source-hans-serif-cn-tc.woff2");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -40,6 +29,7 @@
   src: local("Songti TC Bold"), local(STSongti-TC-Bold), url("/assets/fonts/source-hans-serif-cn-tc.woff2");
   font-weight: bold;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -49,6 +39,7 @@
        local("Segoe UI Symbol"),   // Windows 7
        local("Noto Color Emoji"),  // Android & Linux
        local("Android Emoji");     // Linux
+  font-display: swap;
 }
 
 @mixin font-sans {
