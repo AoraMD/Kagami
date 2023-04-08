@@ -1,4 +1,6 @@
-$content-padding: $spacing-unit / 2;
+@use 'sass:math';
+
+$content-padding: math.div($spacing-unit, 2);
 $post-margin-width: 2 * $spacing-unit;
 $post-header-spacing: 3.5 * $spacing-unit;
 $post-footer-spacing: 3 * $spacing-unit;
@@ -29,7 +31,7 @@ body {
 article {
 
   $vspacing: $spacing-unit;
-  $hspacing: $spacing-unit / 2;
+  $hspacing: math.div($spacing-unit, 2);
 
   h1, h2, h3, h4, h5, h6, p, ul, ol, pre, hr, blockquote, img:only-child {
     display: block;
