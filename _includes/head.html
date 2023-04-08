@@ -35,6 +35,10 @@
   <style>.MathJax_ExBox { font-family: serif; }</style>
   {% endif %}
 
+  {% if page.lazysizes or site.lazysizes %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" type="text/javascript" async=""></script>
+  {% endif %}
+
   {% if jekyll.environment == 'production' and site.google_analytics %}
   {% include google-analytics.html %}
   {% endif %}
