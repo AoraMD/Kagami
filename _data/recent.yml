@@ -1,0 +1,7 @@
+- id: template
+  name: Template
+  size: 1
+
+- id: changelog
+  name: Changelog
+  size: 3

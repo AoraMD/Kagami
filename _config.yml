@@ -1,0 +1,11 @@
+title: Kagami
+email: contact@aoramd.moe
+url: https://kagami.aoramd.moe
+plugins:
+  - jekyll-archives
+theme: kagami
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  layout: post-list
