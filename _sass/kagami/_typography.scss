@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 [lang^="en"]      { line-height: 1.6; @include font-serif; }
 [lang^="zh-CN"] { line-height: 1.8; @include font-serif-zh-Hans; }
 [lang^="zh-SG"] { line-height: 1.8; @include font-serif-zh-Hans; }
@@ -8,14 +10,14 @@
 [lang^="ja"]      { line-height: 1.8; @include font-serif-ja; }
 
 body {
-  @include theme-scope {
-    color: theme-get(content-color);
-    background-color: theme-get(background-color);
-  }
   font-size: font-size();
   font-weight: 300;
   font-kerning: normal;
   border-top: 2px solid currentColor;
+  @include theme-scope {
+    color: theme-get(content-color);
+    background-color: theme-get(background-color);
+  }
 }
 
 a, a:hover, a:visited {
@@ -94,17 +96,17 @@ article {
     padding: 0 0.3em;
     margin: 0 -0.05em;
     font-size: 0.8em;
+    border-radius: 3px;
     @include font-monospace;
     @include theme-scope {
       color: theme-get(inline-code-color);
       background: theme-get(inline-code-background);
     }
-    border-radius: 3px;
   }
 
   pre {
     @include theme-scope {
-      color: lighten(theme-get(content-color), 20%);
+      color: color.scale(theme-get(content-color), $lightness: 20%);
       background: theme-get(block-code-background);
     }
     code {
@@ -123,10 +125,10 @@ article {
 
   hr {
     border: none;
+    width: 30%;
     @include theme-scope {
       border-bottom: 1px solid theme-get(border-color);
     }
-    width: 30%;
   }
 }
 
@@ -151,7 +153,7 @@ article {
 
 .site-nav:hover {
   @include theme-scope {
-    color: lighten(theme-get(content-color), 50%);
+    color: color.scale(theme-get(content-color), $lightness: 50%);
     .page-link:hover {
       color: theme-get(content-color);
     }
@@ -185,10 +187,10 @@ article {
 }
 
 .post-footer {
-  @include theme-scope {
-    color: lighten(theme-get(content-color), 50%);
-  }
   font-size: 0.875em;
+  @include theme-scope {
+    color: color.scale(theme-get(content-color), $lightness: 50%);
+  }
   @include scut-clearfix;
 
   .post-meta { float: left; }
@@ -201,7 +203,7 @@ article {
       transition: color 0.2s ease-out;
       &:hover {
         @include theme-scope {
-          color: lighten(theme-get(content-color), 20%);
+          color: color.scale(theme-get(content-color), $lightness: 20%);
         }
       }
     }
@@ -255,10 +257,10 @@ article {
 }
 
 .footer-info {
-  @include theme-scope {
-    color: lighten(theme-get(content-color), 50%);
-  }
   font-size: 0.68em;
+  @include theme-scope {
+    color: color.scale(theme-get(content-color), $lightness: 50%);
+  }
 }
 
 .post-list {
@@ -296,7 +298,7 @@ article {
 .post-item-meta {
   font-variant-caps: all-petite-caps;
   @include theme-scope {
-    color: lighten(theme-get(content-color), 40%);
+    color: color.scale(theme-get(content-color), $lightness: 40%);
   }
 }
 
