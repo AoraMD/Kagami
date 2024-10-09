@@ -46,6 +46,23 @@
     gitalk.render('gitalk-container')
 </script>
 
+{% elsif site.cwgi %}
+
+{% if page.cwgi %}
+<link rel="stylesheet" href="https://cwgi-cli.jw1.dev/style.css">
+<div id="cwgi_box"></div>
+<script src="https://cwgi-cli.jw1.dev/cwgi.iife.js"></script>
+<script>
+  _CWGI.init('{{ page.cwgi }}', {
+    owner: '{{ site.cwgi.owner | default: site.github_username }}',
+    repo: '{{ site.cwgi.repo | default: site.gitalk.repository }}',
+    clientId: '{{ site.cwgi.client_id }}',
+    proxy: '{{ site.cwgi.proxy }}',
+    reactions: '{{ site.cwgi.reactions }}',
+  })
+</script>
+{% endif %}
+
 {% endif %}
 
 {% endif %}
